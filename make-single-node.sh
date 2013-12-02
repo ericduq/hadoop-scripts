@@ -42,7 +42,7 @@ sudo -u hduser sed -i.bak s=\${JAVA_HOME}=/usr/lib/jvm/jdk/=g hadoop-env.sh
 pwd
 
 # Check that Hadoop is installed
-hadoop version
+sudo -u hduser hadoop version
 
 # Edit configuration files
 sudo -u hduser sed -i.bak 's=<configuration>=<configuration>\<property>\<name>fs\.default\.name\</name>\<value>hdfs://localhost:9000\</value>\</property>=g' core-site.xml 
