@@ -1,4 +1,5 @@
 cd ~ 
+sudo apt-get update
 
 # Download java jdk
 sudo apt-get install openjdk-7-jdk
@@ -20,7 +21,9 @@ sudo sh -c 'cat /home/hduser/.ssh/id_rsa.pub >> /home/hduser/.ssh/authorized_key
 
 # Download Hadoop and set permissons
 cd ~
-wget http://www.trieuvan.com/apache/hadoop/common/hadoop-2.2.0/hadoop-2.2.0.tar.gz
+if [ ! -d hadoop-2.2.0.tar.gz ] then;
+	wget http://www.trieuvan.com/apache/hadoop/common/hadoop-2.2.0/hadoop-2.2.0.tar.gz
+fi
 sudo tar vxzf hadoop-2.2.0.tar.gz -C /usr/local
 cd /usr/local
 sudo mv hadoop-2.2.0 hadoop
