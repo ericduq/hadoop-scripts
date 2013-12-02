@@ -72,3 +72,7 @@ sudo -u hduser sed -i.bak 's=<configuration>=<configuration>\<property>\<name>df
 # Check status
 #sudo -u hduser jps
 
+# Example
+# sudo -u hduser cd /usr/local/hadoop
+# sudo -u hduser hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.2.0.jar pi 2 5
+
