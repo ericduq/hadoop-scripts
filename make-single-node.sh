@@ -21,7 +21,7 @@ sudo sh -c 'cat /home/hduser/.ssh/id_rsa.pub >> /home/hduser/.ssh/authorized_key
 
 # Download Hadoop and set permissons
 cd ~
-if [ ! -d hadoop-2.2.0.tar.gz ] then;
+if [ ! -f hadoop-2.2.0.tar.gz ]; then
 	wget http://www.trieuvan.com/apache/hadoop/common/hadoop-2.2.0/hadoop-2.2.0.tar.gz
 fi
 sudo tar vxzf hadoop-2.2.0.tar.gz -C /usr/local
@@ -45,7 +45,7 @@ sudo -u hduser sed -i.bak s=\${JAVA_HOME}=/usr/lib/jvm/jdk/=g hadoop-env.sh
 pwd
 
 # Check that Hadoop is installed
-sudo -u hduser hadoop version
+/usr/local/hadoop/bin/hadoop version
 
 # Edit configuration files
 sudo -u hduser sed -i.bak 's=<configuration>=<configuration>\<property>\<name>fs\.default\.name\</name>\<value>hdfs://localhost:9000\</value>\</property>=g' core-site.xml 
