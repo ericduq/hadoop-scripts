@@ -1,4 +1,4 @@
-#!/usr/bin/.bashrc
+#!/usr/bin/env sh
 
 # The following script setups up Hadoop 2.2.0 and Pig 0.12.0 on a single node.
 # NOTES: The resources of the node should be of sufficient performance. For example, if implementation is on AWs, Hadoop will not realiably operate on the smallest instance. 
@@ -81,20 +81,21 @@ if [ ! -f pig-0.12.0.tar.gz ]; then
         #svn co http://svn.apache.org/repos/asf/pig/trunk   #Using svn would alternatively download pig-0.13.0.SNAPSHOT
 fi
 sudo tar vxzf pig-0.12.0.tar.gz -C /usr/local
+cd /usr/local
 sudo mv pig-0.12.0 pig
 sudo chown -R hduser:hadoop pig
 
-# Recomplie Pig 0.12.0 for Hadoop 2.2.0
+# Recompile Pig 0.12.0 for Hadoop 2.2.0
 cd /usr/local/pig
-ant clean jar-withouthadoop -Dhadoopversion23
+sudo ant clean jar-withouthadoop -Dhadoopversion=23
 
 # Set paths
-sudo sh -c 'export PIG_HOME=/usr/local/pig >> /home/hduser/.bashrc'
-sudo sh -c 'export PATH=\$PATH:\$PIG_HOME/bin >> /home/hduser/.bashrc'
-sudo sh -c 'export PIG_CLASSPATH=\$HADOOP_INSTALL/conf >> /home/hduser/.bashrc'
+sudo sh -c 'echo export PIG_HOME=/usr/local/pig >> /home/hduser/.bashrc'
+sudo sh -c 'echo export PATH=\$PATH:\$PIG_HOME/bin >> /home/hduser/.bashrc'
+sudo sh -c 'echo export PIG_CLASSPATH=\$HADOOP_INSTALL/conf >> /home/hduser/.bashrc'
 
 # Check pig version
-\usr\local\pig\bin\pig --version
+JAVA_HOME=/usr/lib/jvm/jdk/ /usr/local/pig/bin/pig --version
 
 
 ### Testing Hadoop and Pig
