@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-# The following script setups up Hadoop 2.2.0 and Pig 0.12.0 on a single node.
-# NOTES: The resources of the node should be of sufficient performance. For example, if implementation is on AWs, Hadoop will not realiably operate on the smallest instance. 
+# The following script sets up Hadoop 2.2.0 and Pig 0.12.0 on a single node.
+# NOTES: The resources of the node should be of sufficient performance. For example, if implementation is on AWS, Hadoop will not realiably operate on the smallest instance. 
 
 cd ~ 
 sudo apt-get update
