@@ -13,5 +13,3 @@ Testing: Tested and executed on an ubuntu-precise-12.04-amd64-server-20131114 AM
 ## make-single-node-withpig.sh 
 
 Same as make-single-node.sh but also recomplies in Pig 0.12.0 to work with Hadoop 2.2.0.
-
-Testing: Script is untested but should work.
